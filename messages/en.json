@@ -1,0 +1,105 @@
+{
+  "common": {
+    "appName": "Recipe Finder",
+    "search": "Search recipes...",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "share": "Share",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "dashboard": "Dashboard",
+    "mealPlan": "Meal Plan",
+    "addRecipe": "Add Recipe",
+    "admin": "Admin",
+    "minutes": "min",
+    "servings": "servings"
+  },
+  "home": {
+    "title": "Discover Your Next Favorite Recipe",
+    "subtitle": "Search thousands of recipes, plan your meals, and cook with confidence.",
+    "noResults": "No recipes found. Try adjusting your filters.",
+    "featured": "Featured Recipes"
+  },
+  "filters": {
+    "title": "Filters",
+    "ingredients": "Ingredients",
+    "cuisine": "Cuisine",
+    "diet": "Diet",
+    "prepTime": "Max Prep Time",
+    "difficulty": "Difficulty",
+    "clearAll": "Clear all",
+    "apply": "Apply filters"
+  },
+  "recipe": {
+    "prepTime": "Prep Time",
+    "cookTime": "Cook Time",
+    "servings": "Servings",
+    "difficulty": "Difficulty",
+    "ingredients": "Ingredients",
+    "instructions": "Instructions",
+    "nutrition": "Nutrition",
+    "allergens": "Allergen Warnings",
+    "reviews": "Reviews",
+    "writeReview": "Write a Review",
+    "startCooking": "Start Cooking Mode",
+    "saveRecipe": "Save Recipe",
+    "unsaveRecipe": "Remove from Saved",
+    "calories": "Calories",
+    "protein": "Protein",
+    "carbs": "Carbs",
+    "fat": "Fat",
+    "noAllergens": "No known allergens",
+    "adjustServings": "Adjust servings"
+  },
+  "dashboard": {
+    "title": "My Dashboard",
+    "savedRecipes": "Saved Recipes",
+    "collections": "My Collections",
+    "reviewHistory": "Review History",
+    "noSaved": "You haven't saved any recipes yet.",
+    "createCollection": "Create Collection",
+    "collectionName": "Collection name"
+  },
+  "mealPlan": {
+    "title": "Weekly Meal Plan",
+    "shoppingList": "Shopping List",
+    "generateList": "Generate Shopping List",
+    "dragHint": "Drag recipes from search onto calendar days",
+    "emptyDay": "Drop recipe here",
+    "sendReminder": "Send Email Reminder"
+  },
+  "cooking": {
+    "title": "Cooking Mode",
+    "step": "Step",
+    "of": "of",
+    "timer": "Timer",
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset",
+    "next": "Next Step",
+    "previous": "Previous Step",
+    "exit": "Exit Cooking Mode"
+  },
+  "auth": {
+    "signInTitle": "Sign in to Recipe Finder",
+    "signInSubtitle": "Save recipes, plan meals, and share reviews",
+    "continueWithGoogle": "Continue with Google",
+    "continueWithGitHub": "Continue with GitHub"
+  },
+  "admin": {
+    "title": "Review Moderation",
+    "pending": "Pending Reviews",
+    "approve": "Approve",
+    "reject": "Reject",
+    "noPending": "No pending reviews"
+  },
+  "addRecipe": {
+    "title": "Add Your Recipe",
+    "submit": "Publish Recipe"
+  }
+}

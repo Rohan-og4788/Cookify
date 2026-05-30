@@ -1,0 +1,105 @@
+{
+  "common": {
+    "appName": "Buscador de Recetas",
+    "search": "Buscar recetas...",
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "retry": "Intentar de nuevo",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "share": "Compartir",
+    "signIn": "Iniciar Sesión",
+    "signOut": "Cerrar Sesión",
+    "dashboard": "Panel",
+    "mealPlan": "Plan de Comidas",
+    "addRecipe": "Agregar Receta",
+    "admin": "Admin",
+    "minutes": "min",
+    "servings": "porciones"
+  },
+  "home": {
+    "title": "Descubre Tu Próxima Receta Favorita",
+    "subtitle": "Busca miles de recetas, planifica tus comidas y cocina con confianza.",
+    "noResults": "No se encontraron recetas. Intenta ajustar los filtros.",
+    "featured": "Recetas Destacadas"
+  },
+  "filters": {
+    "title": "Filtros",
+    "ingredients": "Ingredientes",
+    "cuisine": "Cocina",
+    "diet": "Dieta",
+    "prepTime": "Tiempo Máx. de Preparación",
+    "difficulty": "Dificultad",
+    "clearAll": "Limpiar todo",
+    "apply": "Aplicar filtros"
+  },
+  "recipe": {
+    "prepTime": "Tiempo de Preparación",
+    "cookTime": "Tiempo de Cocción",
+    "servings": "Porciones",
+    "difficulty": "Dificultad",
+    "ingredients": "Ingredientes",
+    "instructions": "Instrucciones",
+    "nutrition": "Nutrición",
+    "allergens": "Advertencias de Alérgenos",
+    "reviews": "Reseñas",
+    "writeReview": "Escribir una Reseña",
+    "startCooking": "Modo Cocina",
+    "saveRecipe": "Guardar Receta",
+    "unsaveRecipe": "Quitar de Guardados",
+    "calories": "Calorías",
+    "protein": "Proteína",
+    "carbs": "Carbohidratos",
+    "fat": "Grasa",
+    "noAllergens": "Sin alérgenos conocidos",
+    "adjustServings": "Ajustar porciones"
+  },
+  "dashboard": {
+    "title": "Mi Panel",
+    "savedRecipes": "Recetas Guardadas",
+    "collections": "Mis Colecciones",
+    "reviewHistory": "Historial de Reseñas",
+    "noSaved": "Aún no has guardado ninguna receta.",
+    "createCollection": "Crear Colección",
+    "collectionName": "Nombre de la colección"
+  },
+  "mealPlan": {
+    "title": "Plan Semanal de Comidas",
+    "shoppingList": "Lista de Compras",
+    "generateList": "Generar Lista de Compras",
+    "dragHint": "Arrastra recetas de la búsqueda a los días del calendario",
+    "emptyDay": "Suelta la receta aquí",
+    "sendReminder": "Enviar Recordatorio por Email"
+  },
+  "cooking": {
+    "title": "Modo Cocina",
+    "step": "Paso",
+    "of": "de",
+    "timer": "Temporizador",
+    "start": "Iniciar",
+    "pause": "Pausar",
+    "reset": "Reiniciar",
+    "next": "Siguiente Paso",
+    "previous": "Paso Anterior",
+    "exit": "Salir del Modo Cocina"
+  },
+  "auth": {
+    "signInTitle": "Inicia sesión en Buscador de Recetas",
+    "signInSubtitle": "Guarda recetas, planifica comidas y comparte reseñas",
+    "continueWithGoogle": "Continuar con Google",
+    "continueWithGitHub": "Continuar con GitHub"
+  },
+  "admin": {
+    "title": "Moderación de Reseñas",
+    "pending": "Reseñas Pendientes",
+    "approve": "Aprobar",
+    "reject": "Rechazar",
+    "noPending": "No hay reseñas pendientes"
+  },
+  "addRecipe": {
+    "title": "Agrega Tu Receta",
+    "submit": "Publicar Receta"
+  }
+}
