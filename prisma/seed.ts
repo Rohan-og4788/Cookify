@@ -148,6 +148,8 @@ async function main() {
       title: "Keto Avocado Egg Bake",
       slug: "keto-avocado-egg-bake",
       description: "Low-carb breakfast bake with eggs baked in avocado halves.",
+      imageUrl:
+        "https://www.themealdb.com/images/media/meals/1550441275.jpg",
       prepTimeMinutes: 10,
       cookTimeMinutes: 20,
       servings: 2,
@@ -172,6 +174,8 @@ async function main() {
       title: "Chocolate Lava Cake",
       slug: "chocolate-lava-cake",
       description: "Decadent individual chocolate cakes with molten centers.",
+      imageUrl:
+        "https://www.themealdb.com/images/media/meals/uqxxw1511639215.jpg",
       prepTimeMinutes: 15,
       cookTimeMinutes: 12,
       servings: 4,
@@ -212,7 +216,10 @@ async function main() {
           })),
         },
       },
-      update: {},
+      update: {
+        imageUrl: recipeFields.imageUrl,
+        description: recipeFields.description,
+      },
     });
   }
 

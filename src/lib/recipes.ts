@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { mapRecipeToDTO, searchExternalRecipes } from "@/lib/external-api";
+import { getRecipeImageUrl } from "@/lib/recipe-images";
 import { filterFallbackRecipes, getFallbackRecipeById, FALLBACK_INGREDIENTS } from "@/lib/fallback-recipes";
 import type { PaginatedResponse, RecipeDTO, SearchFilters } from "@/types";
 import type { Prisma } from "@prisma/client";
@@ -151,7 +152,7 @@ export async function autocompleteRecipes(query: string, limit = 8) {
 
   const recipes = await prisma.recipe.findMany({
     where: { title: { contains: query, mode: "insensitive" } },
-    select: { id: true, title: true, slug: true, imageUrl: true },
+    select: { id: true, title: true, slug: true, imageUrl: true, cuisine: true },
     take: limit,
     orderBy: { avgRating: "desc" },
   });
@@ -160,13 +161,26 @@ export async function autocompleteRecipes(query: string, limit = 8) {
     await searchExternalRecipes(query);
     const more = await prisma.recipe.findMany({
       where: { title: { contains: query, mode: "insensitive" } },
-      select: { id: true, title: true, slug: true, imageUrl: true },
+      select: { id: true, title: true, slug: true, imageUrl: true, cuisine: true },
       take: limit,
     });
-    return more;
+    return enrichAutocomplete(more);
   }
 
-  return recipes;
+  return enrichAutocomplete(recipes);
+}
+
+function enrichAutocomplete(
+  rows: { id: string; title: string; slug: string; imageUrl: string | null; cuisine?: string | null }[]
+) {
+  return rows.map((r) => ({
+    ...r,
+    imageUrl: getRecipeImageUrl({
+      imageUrl: r.imageUrl,
+      title: r.title,
+      cuisine: r.cuisine ?? null,
+    }),
+  }));
 }
 
 /** Get all unique ingredient names for filter multi-select */

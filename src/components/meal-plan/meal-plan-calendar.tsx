@@ -14,6 +14,7 @@ import {
 import { useTranslations } from "next-intl";
 import { DAY_NAMES, type MealPlanItemDTO, type RecipeDTO } from "@/types";
 import { RecipeCard } from "@/components/recipes/recipe-card";
+import { getRecipeImageUrl } from "@/lib/recipe-images";
 import { Button } from "@/components/ui/button";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -48,13 +49,27 @@ function DroppableDay({
           {dayItems.map((item) => (
             <li
               key={item.id}
-              className="group flex items-center justify-between rounded-lg bg-surface-hover px-2 py-1.5 text-xs"
+              className="group relative flex min-h-[52px] items-center justify-between overflow-hidden rounded-lg px-2 py-1.5 text-xs"
+              style={{
+                backgroundImage: `url(${JSON.stringify(
+                  getRecipeImageUrl({
+                    imageUrl: item.recipe.imageUrl,
+                    title: item.recipe.title,
+                    cuisine: null,
+                  })
+                )})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
-              <span className="truncate font-medium">{item.recipe.title}</span>
+              <div className="absolute inset-0 bg-black/55" aria-hidden />
+              <span className="relative z-10 truncate font-medium text-white">
+                {item.recipe.title}
+              </span>
               <button
                 type="button"
                 onClick={() => onRemove(item.id)}
-                className="ml-1 hidden text-danger group-hover:inline focus-visible:inline focus-visible:outline-none"
+                className="relative z-10 ml-1 hidden text-white/90 group-hover:inline focus-visible:inline focus-visible:outline-none"
                 aria-label={`Remove ${item.recipe.title}`}
               >
                 ×

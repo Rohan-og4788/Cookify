@@ -224,7 +224,7 @@ export function FilterPanel({ onApply, className }: FilterPanelProps) {
       {/* Desktop sidebar */}
       <aside
         className={cn(
-          "hidden rounded-xl border border-border bg-surface p-6 lg:block",
+          "hidden rounded-2xl border border-border/80 bg-surface p-6 shadow-sm lg:block",
           className
         )}
         aria-label={t("title")}

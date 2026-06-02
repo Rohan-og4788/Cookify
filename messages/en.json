@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "Recipe Finder",
+    "appName": "Cookify",
     "search": "Search recipes...",
     "loading": "Loading...",
     "error": "Something went wrong",
@@ -86,7 +86,7 @@
     "exit": "Exit Cooking Mode"
   },
   "auth": {
-    "signInTitle": "Sign in to Recipe Finder",
+    "signInTitle": "Sign in to Cookify",
     "signInSubtitle": "Save recipes, plan meals, and share reviews",
     "continueWithGoogle": "Continue with Google",
     "continueWithGitHub": "Continue with GitHub"

@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "Buscador de Recetas",
+    "appName": "Cookify",
     "search": "Buscar recetas...",
     "loading": "Cargando...",
     "error": "Algo salió mal",
@@ -86,7 +86,7 @@
     "exit": "Salir del Modo Cocina"
   },
   "auth": {
-    "signInTitle": "Inicia sesión en Buscador de Recetas",
+    "signInTitle": "Inicia sesión en Cookify",
     "signInSubtitle": "Guarda recetas, planifica comidas y comparte reseñas",
     "continueWithGoogle": "Continuar con Google",
     "continueWithGitHub": "Continuar con GitHub"

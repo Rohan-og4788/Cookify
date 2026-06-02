@@ -2,6 +2,7 @@
 
 import { Suspense } from "react";
 import { useTranslations } from "next-intl";
+import { ChefHat, Sparkles } from "lucide-react";
 import { useUrlFilters, useDebounce } from "@/hooks/use-url-filters";
 import { useFilterStore } from "@/stores";
 import { SearchBar } from "@/components/search/search-bar";
@@ -85,19 +86,36 @@ function HomeContent({ initialData }: HomePageClientProps) {
 
   return (
     <div>
-      <section className="mb-8 text-center">
-        <h1 className="mb-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-          {t("title")}
-        </h1>
-        <p className="mx-auto max-w-2xl text-muted">{t("subtitle")}</p>
+      <section className="hero-gradient relative mb-10 overflow-hidden rounded-3xl border border-border/60 px-6 py-12 text-center sm:px-10 sm:py-16">
+        <div className="pointer-events-none absolute -left-20 -top-20 h-56 w-56 rounded-full bg-primary/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-16 -right-16 h-48 w-48 rounded-full bg-secondary/15 blur-3xl" />
+        <div className="relative mx-auto max-w-3xl">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+            <Sparkles className="h-4 w-4" aria-hidden="true" />
+            Discover your next favorite meal
+          </div>
+          <h1 className="mb-4 bg-gradient-to-br from-foreground via-foreground to-primary bg-clip-text text-3xl font-bold tracking-tight text-transparent sm:text-4xl lg:text-5xl">
+            {t("title")}
+          </h1>
+          <p className="mx-auto max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+            {t("subtitle")}
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-muted">
+            <span className="inline-flex items-center gap-1.5 rounded-lg bg-surface/80 px-3 py-1.5 shadow-sm backdrop-blur-sm">
+              <ChefHat className="h-4 w-4 text-primary" aria-hidden="true" />
+              Curated recipes with photos
+            </span>
+          </div>
+        </div>
       </section>
 
-      <div className="mb-6">
+      <div className="mb-8">
         <SearchBar
           value={store.q}
           onChange={(v) => store.setFilter("q", v)}
           onSubmit={handleApplyFilters}
           placeholder={tc("search")}
+          className="mx-auto max-w-2xl"
         />
       </div>
 
@@ -108,17 +126,21 @@ function HomeContent({ initialData }: HomePageClientProps) {
           {showInitialSkeleton ? (
             <RecipeGridSkeleton />
           ) : isError ? (
-            <div className="py-20 text-center">
+            <div className="rounded-2xl border border-dashed border-border py-20 text-center">
               <p className="mb-4 text-muted">{t("noResults")}</p>
               <Button onClick={() => refetch()}>{tc("retry")}</Button>
             </div>
           ) : recipes.length === 0 ? (
-            <p className="py-20 text-center text-muted">{t("noResults")}</p>
+            <div className="rounded-2xl border border-dashed border-border py-20 text-center">
+              <ChefHat className="mx-auto mb-3 h-10 w-10 text-muted" aria-hidden="true" />
+              <p className="text-muted">{t("noResults")}</p>
+            </div>
           ) : (
             <>
               {hasActiveFilters && (
-                <p className="mb-4 text-sm text-muted">
-                  {recipes.length} recipe{recipes.length !== 1 ? "s" : ""} found
+                <p className="mb-5 text-sm font-medium text-muted">
+                  <span className="text-foreground">{recipes.length}</span> recipe
+                  {recipes.length !== 1 ? "s" : ""} found
                 </p>
               )}
               <div
@@ -139,7 +161,7 @@ function HomeContent({ initialData }: HomePageClientProps) {
               </div>
 
               {data && data.totalPages > 1 && (
-                <div className="mt-8 flex justify-center gap-2">
+                <div className="mt-10 flex justify-center gap-2">
                   {Array.from({ length: data.totalPages }).map((_, i) => (
                     <Button
                       key={i}

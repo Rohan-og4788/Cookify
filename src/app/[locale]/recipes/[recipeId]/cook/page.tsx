@@ -20,6 +20,8 @@ export default async function CookPage({
       instructions={recipe.instructions as RecipeInstruction[]}
       recipeTitle={recipe.title}
       recipeId={recipe.id}
+      imageUrl={recipe.imageUrl}
+      cuisine={recipe.cuisine}
     />
   );
 }

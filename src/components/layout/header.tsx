@@ -26,7 +26,7 @@ export function Header() {
   const otherLocale = locale === "en" ? "es" : "en";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-surface/80 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-border/80 bg-surface/90 shadow-sm backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 font-bold text-primary">
           <ChefHat className="h-7 w-7" aria-hidden="true" />

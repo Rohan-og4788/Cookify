@@ -11,6 +11,8 @@
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
     "db:seed": "tsx prisma/seed.ts",
+    "db:backfill-images": "tsx scripts/backfill-recipe-images.ts",
+    "db:setup": "npm run db:push && npm run db:seed && npm run db:backfill-images",
     "postinstall": "prisma generate"
   },
   "dependencies": {

@@ -16,7 +16,7 @@ export async function sendMealPlanReminder(
     return { success: false, reason: "not_configured" };
   }
 
-  const from = process.env.RESEND_FROM_EMAIL ?? "Recipe Finder <onboarding@resend.dev>";
+  const from = process.env.RESEND_FROM_EMAIL ?? "Cookify <onboarding@resend.dev>";
 
   const { data, error } = await resend.emails.send({
     from,

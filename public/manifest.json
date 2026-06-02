@@ -1,6 +1,6 @@
 {
-  "name": "Recipe Finder",
-  "short_name": "Recipes",
+  "name": "Cookify",
+  "short_name": "Cookify",
   "description": "Discover, save, and cook amazing recipes",
   "start_url": "/en",
   "display": "standalone",

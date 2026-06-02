@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+import { withRecipeImage } from "@/lib/recipe-images";
 import type { RecipeInstruction, NutritionInfo, RecipeDTO } from "@/types";
 import type { Prisma } from "@prisma/client";
 
@@ -201,7 +202,11 @@ export function mapRecipeToDTO(
     title: recipe.title,
     slug: recipe.slug,
     description: recipe.description,
-    imageUrl: recipe.imageUrl,
+    imageUrl: withRecipeImage({
+      imageUrl: recipe.imageUrl,
+      title: recipe.title,
+      cuisine: recipe.cuisine,
+    }).imageUrl,
     prepTimeMinutes: recipe.prepTimeMinutes,
     cookTimeMinutes: recipe.cookTimeMinutes,
     servings: recipe.servings,

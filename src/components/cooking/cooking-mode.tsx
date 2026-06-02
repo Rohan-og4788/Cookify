@@ -7,14 +7,24 @@ import { Play, Pause, RotateCcw, ChevronLeft, ChevronRight, X } from "lucide-rea
 import { Link } from "@/i18n/routing";
 import type { RecipeInstruction } from "@/types";
 import { cn } from "@/lib/utils";
+import { getRecipeImageUrl } from "@/lib/recipe-images";
 
 interface CookingModeProps {
   instructions: RecipeInstruction[];
   recipeTitle: string;
   recipeId: string;
+  imageUrl?: string | null;
+  cuisine?: string | null;
 }
 
-export function CookingMode({ instructions, recipeTitle, recipeId }: CookingModeProps) {
+export function CookingMode({
+  instructions,
+  recipeTitle,
+  recipeId,
+  imageUrl,
+  cuisine,
+}: CookingModeProps) {
+  const bgImage = getRecipeImageUrl({ imageUrl, title: recipeTitle, cuisine });
   const t = useTranslations("cooking");
   const [step, setStep] = useState(0);
   const [timerSeconds, setTimerSeconds] = useState(0);
@@ -62,8 +72,15 @@ export function CookingMode({ instructions, recipeTitle, recipeId }: CookingMode
       aria-label={t("title")}
       aria-modal="true"
     >
+      <div
+        className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-25"
+        style={{ backgroundImage: `url(${JSON.stringify(bgImage)})` }}
+        aria-hidden
+      />
+      <div className="pointer-events-none absolute inset-0 bg-background/85 backdrop-blur-sm" aria-hidden />
+
       {/* Header */}
-      <header className="flex items-center justify-between border-b border-border px-4 py-4 sm:px-8">
+      <header className="relative z-10 flex items-center justify-between border-b border-border/80 bg-surface/80 px-4 py-4 backdrop-blur-md sm:px-8">
         <div>
           <p className="text-sm text-muted">{recipeTitle}</p>
           <p className="text-lg font-semibold">
@@ -80,7 +97,7 @@ export function CookingMode({ instructions, recipeTitle, recipeId }: CookingMode
       </header>
 
       {/* Main content - large text for voice-ready interface */}
-      <main className="flex flex-1 flex-col items-center justify-center px-4 py-8 sm:px-8">
+      <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 py-8 sm:px-8">
         <div
           className="max-w-2xl text-center"
           aria-live="polite"
@@ -137,7 +154,7 @@ export function CookingMode({ instructions, recipeTitle, recipeId }: CookingMode
       </main>
 
       {/* Navigation */}
-      <footer className="flex items-center justify-between border-t border-border px-4 py-6 sm:px-8">
+      <footer className="relative z-10 flex items-center justify-between border-t border-border/80 bg-surface/80 px-4 py-6 backdrop-blur-md sm:px-8">
         <Button
           size="lg"
           variant="outline"

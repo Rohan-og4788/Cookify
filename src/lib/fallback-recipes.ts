@@ -1,3 +1,4 @@
+import { withRecipeImage } from "@/lib/recipe-images";
 import type { RecipeDTO } from "@/types";
 
 /** Built-in recipes with images — used when DB is empty or unavailable */
@@ -227,13 +228,14 @@ export function filterFallbackRecipes(
 
   const total = results.length;
   const start = (page - 1) * limit;
-  const data = results.slice(start, start + limit);
+  const data = results.slice(start, start + limit).map(withRecipeImage);
 
   return { data, total, page, totalPages: Math.ceil(total / limit) || 1 };
 }
 
 export function getFallbackRecipeById(id: string): RecipeDTO | null {
-  return FALLBACK_RECIPES.find((r) => r.id === id) ?? null;
+  const recipe = FALLBACK_RECIPES.find((r) => r.id === id);
+  return recipe ? withRecipeImage(recipe) : null;
 }
 
 export const FALLBACK_INGREDIENTS = [

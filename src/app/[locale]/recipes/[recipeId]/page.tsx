@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { auth } from "@/lib/auth";
@@ -13,6 +12,7 @@ import { InstructionSteps } from "@/components/recipes/instruction-steps";
 import { NutritionPanel } from "@/components/recipes/nutrition-panel";
 import { ReviewsSection } from "@/components/recipes/reviews-section";
 import { RecipeDetailActions } from "@/components/recipes/recipe-detail-actions";
+import { RecipeBackground } from "@/components/recipes/recipe-background";
 import { ServingsAdjuster } from "@/components/recipes/servings-adjuster";
 import type { Metadata } from "next";
 import type { ReviewDTO } from "@/types";
@@ -91,23 +91,15 @@ export default async function RecipeDetailPage({
   return (
     <article>
       {/* Hero */}
-      <div className="relative mb-8 aspect-[21/9] overflow-hidden rounded-2xl bg-surface-hover">
-        {recipe.imageUrl ? (
-          <Image
-            src={recipe.imageUrl}
-            alt={recipe.title}
-            fill
-            className="object-cover"
-            priority
-            sizes="100vw"
-          />
-        ) : (
-          <div className="flex h-full items-center justify-center text-muted">
-            No image available
-          </div>
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute bottom-0 p-6 text-white sm:p-8">
+      <RecipeBackground
+        imageUrl={recipe.imageUrl}
+        title={recipe.title}
+        cuisine={recipe.cuisine}
+        alt={recipe.title}
+        className="mb-8 aspect-[21/9] min-h-[220px] rounded-3xl shadow-lg ring-1 ring-black/5 dark:ring-white/10 sm:aspect-[2.4/1]"
+        overlay="hero"
+      >
+        <div className="flex h-full flex-col justify-end p-6 text-white sm:p-8">
           <DifficultyBadge difficulty={recipe.difficulty} className="mb-3" />
           <h1 className="text-3xl font-bold sm:text-4xl">{recipe.title}</h1>
           <div className="mt-3 flex flex-wrap items-center gap-4 text-sm">
@@ -122,7 +114,7 @@ export default async function RecipeDetailPage({
             </span>
           </div>
         </div>
-      </div>
+      </RecipeBackground>
 
       {/* Actions */}
       <div className="mb-8 flex flex-wrap items-center gap-3">

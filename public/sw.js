@@ -1,4 +1,4 @@
-const CACHE_NAME = "recipe-finder-v1";
+const CACHE_NAME = "cookify-v1";
 const OFFLINE_URL = "/en";
 
 const PRECACHE_URLS = [OFFLINE_URL, "/manifest.json"];

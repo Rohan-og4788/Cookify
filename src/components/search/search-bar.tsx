@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { useDebounce } from "@/hooks/use-url-filters";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "@/i18n/routing";
-import Image from "next/image";
+import { RecipeImage } from "@/components/recipes/recipe-image";
 import { cn } from "@/lib/utils";
 
 interface SearchBarProps {
@@ -74,7 +74,7 @@ export function SearchBar({
             onChange={(e) => onChange(e.target.value)}
             onFocus={() => setFocused(true)}
             placeholder={placeholder}
-            className="pl-10 pr-10"
+            className="h-12 rounded-xl border-border/80 bg-surface pl-10 pr-10 shadow-sm"
             aria-label="Search recipes"
             aria-autocomplete="list"
             aria-controls="search-suggestions"
@@ -97,25 +97,25 @@ export function SearchBar({
         <ul
           id="search-suggestions"
           role="listbox"
-          className="absolute z-50 mt-1 max-h-72 w-full overflow-auto rounded-lg border border-border bg-surface shadow-lg"
+          className="absolute z-50 mt-2 max-h-72 w-full overflow-auto rounded-xl border border-border bg-surface p-1 shadow-xl"
         >
           {suggestions.map((s) => (
             <li key={s.id} role="option" aria-selected={false}>
               <Link
                 href={`/recipes/${s.id}`}
-                className="flex items-center gap-3 px-4 py-2 hover:bg-surface-hover"
+                className="flex items-center gap-3 rounded-lg px-3 py-2 hover:bg-surface-hover"
                 onClick={() => setFocused(false)}
               >
-                {s.imageUrl && (
-                  <Image
-                    src={s.imageUrl}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className="rounded object-cover"
-                  />
-                )}
-                <span className="text-sm">{s.title}</span>
+                <RecipeImage
+                  imageUrl={s.imageUrl}
+                  title={s.title}
+                  width={44}
+                  height={44}
+                  alt=""
+                  asBackground
+                  className="h-11 w-11 shrink-0 ring-1 ring-border/60"
+                />
+                <span className="text-sm font-medium">{s.title}</span>
               </Link>
             </li>
           ))}

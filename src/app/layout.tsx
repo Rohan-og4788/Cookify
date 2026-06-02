@@ -13,13 +13,16 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Recipe Finder",
+  title: {
+    default: "Cookify",
+    template: "%s | Cookify",
+  },
   description: "Discover, save, and cook amazing recipes",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Recipe Finder",
+    title: "Cookify",
   },
 };
 

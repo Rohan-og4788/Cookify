@@ -40,7 +40,7 @@ export async function GET(
           {recipe.cuisine} · {recipe.prepTimeMinutes} min · ★ {recipe.avgRating.toFixed(1)}
         </div>
         <div style={{ fontSize: 20, marginTop: 40, opacity: 0.7 }}>
-          Recipe Finder
+          Cookify
         </div>
       </div>
     ),

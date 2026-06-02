@@ -1,4 +1,4 @@
-# Recipe Finder
+# Cookify
 
 A production-ready recipe discovery and meal planning web application built with Next.js 15, PostgreSQL, and modern React patterns.
 
@@ -92,13 +92,17 @@ npm install
 cp .env.example .env
 # Edit .env with your values
 
-# Set up the database
-npm run db:push
-npm run db:seed
+# Start PostgreSQL (Docker) — matches .env.example credentials
+docker compose up -d
+
+# Set up the database (schema + sample recipes + images)
+npm run db:setup
 
 # Start development server
 npm run dev
 ```
+
+Without Docker, use any PostgreSQL instance and set `DATABASE_URL` in `.env`, then run `npm run db:setup`.
 
 Open [http://localhost:3000](http://localhost:3000) — you'll be redirected to `/en`.
 
@@ -130,6 +134,20 @@ npm run db:migrate
 
 # Seed sample data
 npm run db:seed
+
+# Backfill images for recipes missing imageUrl
+npm run db:backfill-images
+
+# All-in-one: push schema, seed, backfill images
+npm run db:setup
+```
+
+### Recipe images
+
+Recipes use TheMealDB photos. Seeded recipes include `imageUrl`; the UI also resolves fallbacks by cuisine/title when a row has no image. After importing or adding recipes without photos, run:
+
+```bash
+npm run db:backfill-images
 ```
 
 ### Models
