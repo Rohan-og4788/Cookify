@@ -1,5 +1,7 @@
 # Cookify
+<img width="1920" height="977" alt="Image" src="https://github.com/user-attachments/assets/c8fbe09b-cb68-486e-92a3-476e2f0f6987" />
 
+https://github.com/user-attachments/assets/661b981e-49b8-4220-83a4-2691887bec59
 A production-ready recipe discovery and meal planning web application built with Next.js 15, PostgreSQL, and modern React patterns.
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black)
